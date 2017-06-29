@@ -1,12 +1,9 @@
 package com.luxoft.logeek;
 
-import com.luxoft.logeek.repository.ChildRepository;
-import com.luxoft.logeek.repository.ParentRepository;
 import org.hibernate.Session;
 import org.junit.After;
 import org.junit.runner.RunWith;
 import org.openjdk.jmh.annotations.Setup;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,10 +18,6 @@ import java.util.Random;
 public abstract class TestBase {
     @PersistenceContext
     protected EntityManager em;
-    @Autowired
-    protected ChildRepository childRepository;
-    @Autowired
-    protected ParentRepository parentRepository;
 
     protected Random random;
 
@@ -35,8 +28,6 @@ public abstract class TestBase {
 
 	@After
 	public void tearDown() throws Exception {
-		parentRepository.deleteAllInBatch();
-		childRepository.deleteAllInBatch();
 	}
 
 	protected Session getSession(){

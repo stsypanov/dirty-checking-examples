@@ -1,12 +1,7 @@
 package com.luxoft.logeek;
 
-import com.luxoft.logeek.entity.Child;
-import com.luxoft.logeek.entity.Parent;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class InstrumentationTest extends TestBase {
 
@@ -15,7 +10,7 @@ public class InstrumentationTest extends TestBase {
     @Override
     public void setUp() throws Exception {
         super.setUp();
-        Parent papa = new Parent("папа");
+        /*Parent papa = new Parent("папа");
         Parent mama = new Parent("мама");
 
         Child child1 = new Child(papa);
@@ -35,11 +30,11 @@ public class InstrumentationTest extends TestBase {
         mama.addChild(child5);
         mama.addChild(child6);
 
-        parentRepository.save(Arrays.asList(papa,mama));
+        parentRepository.save(Arrays.asList(papa,mama));*/
     }
 
     @Test
     public void testSave() throws Exception {
-        List<Parent> parents = parentRepository.findAll();
+//        List<Parent> parents = parentRepository.findAll();
     }
 }
