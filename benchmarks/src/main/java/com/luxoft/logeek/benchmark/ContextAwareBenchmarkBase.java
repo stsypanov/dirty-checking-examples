@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 @Fork(1)
 @State(Scope.Benchmark)
 @Warmup(iterations = 10)
-@Measurement(iterations = 10)
+@Measurement(iterations = 100)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 public class ContextAwareBenchmarkBase {
