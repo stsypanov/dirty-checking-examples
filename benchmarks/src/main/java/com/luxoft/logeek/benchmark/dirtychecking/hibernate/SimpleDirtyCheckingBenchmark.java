@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 @Fork(1)
-@State(Scope.Benchmark)
+@State(Scope.Thread)
 @Warmup(iterations = 50)
 @Measurement(iterations = 100)
 @BenchmarkMode(Mode.AverageTime)
