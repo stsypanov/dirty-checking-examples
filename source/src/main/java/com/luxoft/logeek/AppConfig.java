@@ -1,6 +1,5 @@
 package com.luxoft.logeek;
 
-import com.p6spy.engine.spy.P6DataSource;
 import org.hibernate.cfg.AvailableSettings;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -30,15 +29,10 @@ public class AppConfig {
 	private static final String FALSE = "false";
 
 	@Bean
-	public DataSource actualDataSource() {
+	public DataSource dataSource() {
 		return new EmbeddedDatabaseBuilder()
 				.setType(EmbeddedDatabaseType.H2)
 				.build();
-	}
-
-	@Bean
-	public P6DataSource dataSource(DataSource actualDataSource) {
-		return new P6DataSource(actualDataSource);
 	}
 
 	@Bean
@@ -57,7 +51,7 @@ public class AppConfig {
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-		em.setDataSource(dataSource(actualDataSource()));
+		em.setDataSource(dataSource());
 		em.setJpaVendorAdapter(jpaVendorAdapter());
 		em.setPackagesToScan("com.luxoft.logeek.entity");
 		em.setJpaProperties(additionalProperties());
