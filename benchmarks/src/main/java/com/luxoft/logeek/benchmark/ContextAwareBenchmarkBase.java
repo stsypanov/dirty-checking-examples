@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 @Fork(1)
 @State(Scope.Thread)
-@Warmup(iterations = 10)
+@Warmup(iterations = 20)
 @Measurement(iterations = 100)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
