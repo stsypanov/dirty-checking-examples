@@ -1,6 +1,6 @@
 package com.luxoft.logeek.benchmark.dirtychecking.hibernate;
 
-import com.luxoft.logeek.hibernate.EntityWithManyStringFields;
+import com.luxoft.logeek.hibernate.EnhancedEntityWithManyStringFields;
 import org.openjdk.jmh.annotations.*;
 
 import java.util.Random;
@@ -14,11 +14,11 @@ import java.util.concurrent.TimeUnit;
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 public class SimpleDirtyCheckingBenchmark {
 	private Random random= new Random();
-	private EntityWithManyStringFields entity;
+	private EnhancedEntityWithManyStringFields entity;
 	
 	@Setup(Level.Invocation)
 	public void init() {
-		entity = new EntityWithManyStringFields();
+		entity = new EnhancedEntityWithManyStringFields();
 		
 		entity.setField1(random.nextGaussian() + "");
 		entity.setField2(random.nextGaussian() + "");

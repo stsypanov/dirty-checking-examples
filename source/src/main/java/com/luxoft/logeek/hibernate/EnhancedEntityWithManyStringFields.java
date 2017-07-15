@@ -7,7 +7,7 @@ import org.hibernate.engine.spi.EntityEntry;
 import org.hibernate.engine.spi.ManagedEntity;
 import org.hibernate.engine.spi.SelfDirtinessTracker;
 
-public class EntityWithManyStringFields implements ManagedEntity, SelfDirtinessTracker {
+public class EnhancedEntityWithManyStringFields implements ManagedEntity, SelfDirtinessTracker {
 
     private Long id;
     
@@ -30,7 +30,7 @@ public class EntityWithManyStringFields implements ManagedEntity, SelfDirtinessT
     
     private transient CollectionTracker $$_hibernate_collectionTracker;
 
-    public EntityWithManyStringFields() {
+    public EnhancedEntityWithManyStringFields() {
     }
 
     public void setId(Long id) {
