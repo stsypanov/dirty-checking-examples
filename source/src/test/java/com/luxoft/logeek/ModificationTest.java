@@ -9,11 +9,11 @@ import org.springframework.test.annotation.Commit;
 
 import java.io.Serializable;
 
+@Commit
 public class ModificationTest extends TestBase {
 
     private Serializable id;
 
-    @Commit
     @Before
     @Override
     public void setUp() throws Exception {
@@ -27,7 +27,6 @@ public class ModificationTest extends TestBase {
     }
 
     @Test
-    @Commit
     public void test_noModification_expectNoUpdate() throws Exception {
         Session session = getSession();
 
@@ -38,7 +37,6 @@ public class ModificationTest extends TestBase {
     }
 
     @Test
-    @Commit
     public void test_withModification_expectUpdateQueryExecuted() throws Exception {
         Session session = getSession();
 
@@ -50,7 +48,6 @@ public class ModificationTest extends TestBase {
     }
 
     @Test
-    @Commit
     public void test_withModification_expectUpdateQueryExecutedForOnylOneField() throws Exception {
         Session session = getSession();
 
