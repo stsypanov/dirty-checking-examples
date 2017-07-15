@@ -1,30 +1,17 @@
 package com.luxoft.logeek;
 
+import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.luxoft.logeek.entity.EntityWithManyStringFields;
 import com.luxoft.logeek.entity.EntityWithManyStringFieldsDynamicUpdate;
 import org.hibernate.Session;
-import org.junit.Before;
 import org.junit.Test;
-import org.springframework.test.annotation.Commit;
 
 import java.io.Serializable;
 
-@Commit
+@DatabaseSetup("/sampleData.xml")
 public class ModificationTest extends TestBase {
 
-    private Serializable id;
-
-    @Before
-    @Override
-    public void setUp() throws Exception {
-        super.setUp();
-
-        EntityWithManyStringFields entity = createEntity();
-
-        Session session = getSession();
-        id = session.save(entity);
-        session.flush();
-    }
+    private Serializable id = 1L;
 
     @Test
     public void test_noModification_expectNoUpdate() throws Exception {
