@@ -4,6 +4,7 @@ import org.hibernate.cfg.AvailableSettings;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
@@ -20,6 +21,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
+@Import(DbTestInitializer.class)
 @EnableTransactionManagement
 @EnableJpaRepositories("com.luxoft.logeek.repository")
 @ComponentScan(basePackages = {"com.luxoft.logeek"})
@@ -39,7 +41,6 @@ public class AppConfig {
 	public JpaVendorAdapter jpaVendorAdapter() {
 		HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
 		adapter.setDatabase(Database.H2);
-		adapter.setGenerateDdl(true);
 		return adapter;
 	}
 
@@ -68,6 +69,7 @@ public class AppConfig {
 		Properties properties = new Properties();
 		properties.setProperty(AvailableSettings.SHOW_SQL, FALSE);
 		properties.setProperty(AvailableSettings.FORMAT_SQL, FALSE);
+		properties.setProperty(AvailableSettings.USE_SQL_COMMENTS, FALSE);
 		return properties;
 	}
 }
