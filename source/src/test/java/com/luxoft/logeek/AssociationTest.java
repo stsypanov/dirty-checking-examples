@@ -6,7 +6,7 @@ import com.luxoft.logeek.entity.association.Parent;
 import org.junit.Test;
 import org.springframework.test.annotation.Commit;
 
-import java.util.Collections;
+import static java.util.Arrays.asList;
 
 @Commit
 @DatabaseSetup("/associationTest.xml")
@@ -17,10 +17,7 @@ public class AssociationTest extends TestBase {
     @Test
     public void loadParent() {
         Parent parent = getSession().find(Parent.class, parentId);
-//        parent.addChild(new Child());
-        parent.setChildren(Collections.emptyList());
-
-
+        parent.setChildren(asList(new Child()));
     }
 
     @Test
