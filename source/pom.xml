@@ -184,7 +184,7 @@
 					<execution>
 						<configuration>
 							<enableDirtyTracking>${use.instrumentation}</enableDirtyTracking>
-							<!--<enableAssociationManagement>${use.instrumentation}</enableAssociationManagement>-->
+							<enableAssociationManagement>${use.instrumentation}</enableAssociationManagement>
 						</configuration>
 						<goals>
 							<goal>enhance</goal>
